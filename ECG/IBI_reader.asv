@@ -1,0 +1,7 @@
+data=table2array(BL_01);
+data=data(:,1);
+time=linspace(0,120000,size(data,1));
+line(time,data)
+[peaks,indices]=findpeaks(data,"MinPeakDistance",500,"MinPeakHeight",50);
+peaktimes=time(indices);
+ibi=peaktimes(2:end)-peaktimes(1:end-1);
